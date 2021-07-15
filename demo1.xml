@@ -1,6 +1,6 @@
 <Demo1>
   <simpleint>1</simpleint>
-  <lval>22</lval>
+  <longval>22</longval>
   <str>Part2</str>
   <defaultv>e</defaultv>
   <arr>
@@ -42,4 +42,34 @@
       <int>6</int>
     </entry>
   </map>
+  <objmap>
+    <entry>
+      <com.company.Sample>
+        <a>6</a>
+        <s>anotherone</s>
+        <treeMap>
+          <entry>
+            <int>5</int>
+            <int>0</int>
+          </entry>
+        </treeMap>
+      </com.company.Sample>
+      <int>200</int>
+    </entry>
+    <entry>
+      <com.company.Sample>
+        <a>33</a>
+        <s>somestring</s>
+        <treeMap>
+          <entry>
+            <int>10</int>
+            <int>1</int>
+          </entry>
+        </treeMap>
+      </com.company.Sample>
+      <int>100</int>
+    </entry>
+  </objmap>
+  <enum1>BLUE</enum1>
+  <enum2>GREEN</enum2>
 </Demo1>

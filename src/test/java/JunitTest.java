@@ -1,10 +1,19 @@
 import com.company.Demo1;
 import com.company.Demo2;
+import com.company.Sample;
 import com.company.Serialize;
-import com.company.XmlToObject;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-import com.thoughtworks.xstream.mapper.MapperWrapper;
+
+import com.sun.deploy.util.StringUtils;
+import org.hamcrest.collection.IsMapContaining;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.Test;
 
 import java.io.*;
@@ -14,6 +23,10 @@ import static org.junit.Assert.*;
 public class JunitTest {
     public Demo1 d1;
     public Demo2 d2;
+
+    public String convertToString(Map map) {
+        return map.toString();
+    }
 
     public JunitTest()
     {
@@ -27,16 +40,63 @@ public class JunitTest {
             System.out.println(e);
         }
     }
-    @Test
+    @Test(timeout = 1000)
     public void checkNotNull(){
         assertNotNull(d1);
         assertNotNull(d2);
     }
     @Test(timeout = 1000)
-    public void test1() throws IOException{
+    public void notExactlySame(){
+        String sd1=d1.toString();
+        String sd2=d2.toString();
+        assertNotEquals(sd1,sd2);
+    }
+    @Test(timeout = 1000)
+    public void test1() {
         assertArrayEquals(d1.arr, d2.arr);
 
     }
+    @Test(timeout = 1000)
+    public void test2(){
+        assertEquals(d1.longval,d2.longval);
+        assertEquals(d1.str,d2.str);
+        assertEquals(d1.defaultv,d2.defaultv);
+    }
 
+    @Test(timeout = 1000)
+    public void testMap(){
+        //Test size
+        assertEquals(d1.map.size(),d2.map.size());
 
+        //Test Equals,ignore order
+        assertThat(d1.map,is(d2.map));
+        // or do : assertEquals(d1.map,d2.map) same thing
+
+    }
+
+    @Test(timeout = 1000)
+    public void testObjectMap(){
+        //Test size
+        assertEquals(d1.objmap.size(),d2.objmap.size());
+
+        assertNotNull(d1.objmap);
+        assertNotNull(d2.objmap);
+        String mp1=convertToString(d1.objmap);
+        String mp2=convertToString(d2.objmap);
+
+        System.out.println(mp1);
+        System.out.println(mp2);
+//        assertEquals(mp1,mp2);
+
+//        for(Map.Entry<Sample,Integer> entry:d2.objmap.entrySet())
+//        {
+//            assertThat(d1.objmap,IsMapContaining.hasEntry(entry.getKey(),entry.getValue()));
+//        }
+    }
+
+    @Test(timeout = 1000)
+    public void testEnums(){
+        assertEquals(d1.enum1,d2.enum1);
+        assertNotEquals(d1.enum2,d2.enum3);
+    }
 }

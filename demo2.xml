@@ -1,7 +1,8 @@
 <Demo1>
-  <a>0</a>
-  <lval>22</lval>
-  <newval>0</newval>
+  <extra>0</extra>
+  <longval>22</longval>
+  <str>Part2</str>
+  <default1>0</default1>
   <defaultv>e</defaultv>
   <arr>
     <int>0</int>
@@ -42,4 +43,33 @@
       <int>6</int>
     </entry>
   </map>
+  <objmap>
+    <entry>
+      <com.company.Sample>
+        <a>6</a>
+        <s>anotherone</s>
+        <treeMap>
+          <entry>
+            <int>5</int>
+            <int>0</int>
+          </entry>
+        </treeMap>
+      </com.company.Sample>
+      <int>200</int>
+    </entry>
+    <entry>
+      <com.company.Sample>
+        <a>33</a>
+        <s>somestring</s>
+        <treeMap>
+          <entry>
+            <int>10</int>
+            <int>1</int>
+          </entry>
+        </treeMap>
+      </com.company.Sample>
+      <int>100</int>
+    </entry>
+  </objmap>
+  <enum1>BLUE</enum1>
 </Demo1>
