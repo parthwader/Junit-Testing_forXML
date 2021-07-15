@@ -4,6 +4,8 @@ import com.company.Sample;
 import com.company.Serialize;
 
 import com.sun.deploy.util.StringUtils;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.hamcrest.collection.IsMapContaining;
 import org.junit.Test;
 
@@ -79,14 +81,17 @@ public class JunitTest {
         //Test size
         assertEquals(d1.objmap.size(),d2.objmap.size());
 
+        // both are assigned some values
         assertNotNull(d1.objmap);
         assertNotNull(d2.objmap);
-        String mp1=convertToString(d1.objmap);
-        String mp2=convertToString(d2.objmap);
 
-        System.out.println(mp1);
-        System.out.println(mp2);
-//        assertEquals(mp1,mp2);
+        XStream xStream=new XStream(new DomDriver());
+        String mp1= xStream.toXML(d1.objmap);
+        String mp2= xStream.toXML(d2.objmap);
+
+//        System.out.println(mp1);
+//        System.out.println(mp2);
+        assertEquals(mp1,mp2);
 
 //        for(Map.Entry<Sample,Integer> entry:d2.objmap.entrySet())
 //        {
