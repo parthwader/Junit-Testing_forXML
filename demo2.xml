@@ -46,19 +46,6 @@
   <objmap>
     <entry>
       <com.company.Sample>
-        <a>6</a>
-        <s>anotherone</s>
-        <treeMap>
-          <entry>
-            <int>5</int>
-            <int>0</int>
-          </entry>
-        </treeMap>
-      </com.company.Sample>
-      <int>200</int>
-    </entry>
-    <entry>
-      <com.company.Sample>
         <a>33</a>
         <s>somestring</s>
         <treeMap>
@@ -70,6 +57,31 @@
       </com.company.Sample>
       <int>100</int>
     </entry>
+    <entry>
+      <com.company.Sample>
+        <a>6</a>
+        <s>anotherone</s>
+        <treeMap>
+          <entry>
+            <int>5</int>
+            <int>0</int>
+          </entry>
+        </treeMap>
+      </com.company.Sample>
+      <int>200</int>
+    </entry>
   </objmap>
+  <bidiMap serialization="custom">
+    <unserializable-parents/>
+    <org.apache.commons.collections4.bidimap.DualHashBidiMap>
+      <default/>
+      <map>
+        <entry>
+          <string>cisco3</string>
+          <int>-94</int>
+        </entry>
+      </map>
+    </org.apache.commons.collections4.bidimap.DualHashBidiMap>
+  </bidiMap>
   <enum1>BLUE</enum1>
 </Demo1>

@@ -1,5 +1,7 @@
 package com.company;
 
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +17,8 @@ public class Demo2 implements Serializable{
     public int arr[];
     public Map<Integer,Integer> map = new HashMap<Integer, Integer>();
     public Map<Sample,Integer> objmap=new HashMap<Sample,Integer>();
+    public DualHashBidiMap<String,Integer> bidiMap=new DualHashBidiMap<String,Integer>();
+
     public Color enum1;
     public Color enum3;
     // Default constructor

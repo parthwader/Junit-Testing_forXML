@@ -26,10 +26,6 @@ public class JunitTest {
     public Demo1 d1;
     public Demo2 d2;
 
-    public String convertToString(Map map) {
-        return map.toString();
-    }
-
     public JunitTest()
     {
         d1=Serialize.demo1;
@@ -78,12 +74,12 @@ public class JunitTest {
 
     @Test(timeout = 1000)
     public void testObjectMap(){
-        //Test size
-        assertEquals(d1.objmap.size(),d2.objmap.size());
-
         // both are assigned some values
         assertNotNull(d1.objmap);
         assertNotNull(d2.objmap);
+
+        //Test size
+        assertEquals(d1.objmap.size(),d2.objmap.size());
 
         XStream xStream=new XStream(new DomDriver());
         String mp1= xStream.toXML(d1.objmap);
@@ -99,6 +95,17 @@ public class JunitTest {
 //        }
     }
 
+    @Test
+    public void testBidiMap()
+    {
+        // both are assigned some values
+        assertNotNull(d1.bidiMap);
+        assertNotNull(d2.bidiMap);
+        //Test size
+        assertEquals(d1.bidiMap.size(),d2.bidiMap.size());
+
+        assertEquals(d1.bidiMap,d2.bidiMap);
+    }
     @Test(timeout = 1000)
     public void testEnums(){
         assertEquals(d1.enum1,d2.enum1);
